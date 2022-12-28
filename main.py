@@ -19,7 +19,7 @@ def missingData(year):
         matches = driver.find_elements(by='xpath',
                                        value='//tr[@itemprop="name"]')
     else:
-        matches = driver.find_elements(by='xpath', value='//td[@align="right"]/.. | //td[@style="text-align:right;"]/..')
+        matches = driver.find_elements(by='xpath', value='//td[@align="right"]/.. | //td[@style="text-align:right;"]/.. | //tr[@itemprop="name"]')
 
     home = []
     score = []
@@ -27,7 +27,7 @@ def missingData(year):
     for match in matches:
         home.append(match.find_element(by='xpath', value='./th[1]/span | ./td[1]').text)
         score.append(match.find_element(by='xpath', value='./th[2] | ./td[2]').text)
-        away.append(match.find_element(by='xpath', value='./th[3]/span/span | ./td[3]').text)
+        away.append(match.find_element(by='xpath', value='./th[3]/span/span | ./th[3]/span | ./td[3]').text)
 
     dict_football = {'home': home, 'score': score, 'away': away}
     df_football = pd.DataFrame(dict_football)
