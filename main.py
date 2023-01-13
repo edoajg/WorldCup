@@ -39,7 +39,11 @@ years = [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982,
 #years = [1930, 2006, 2010, 2014, 2018]
 
 
-fifa = [missingData(year) for year in years]
+#fifa = [missingData(year) for year in years]
+df_fixture = missingData(2022)
+print(df_fixture)
 driver.quit()
-df_fifa = pd.concat(fifa, ignore_index=True)
-df_fifa.to_csv('fifacupsdata.csv', index=False)
+#df_fifa = pd.concat(fifa, ignore_index=True)
+#df_fifa.to_csv('fifacupsdata.csv', index=False)
+df_fixture.to_csv('2022fixture.csv', index=False)
+
